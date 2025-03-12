@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+    <h1></h1>
+    
+    <section class="mt-5">
+        <h2 style="color: #FF6600;">Our Team</h2>
+        <div class="tree-container">
+            <ul class="tree">
+                <li>
+                    <span onclick="showMember('President(s)', 'president.jpg', 'President Names')">President(s)</span>
+                    <ul>
+                        <li><span onclick="showMember('Senior Advisor(s)', 'advisor.jpg', 'Senior Advisor Names')">Senior Advisor(s)</span></li>
+                    </ul>
+                </li> <!--do this -->
+                <li>
+                    <span onclick="showMember('Treasurer(s)', 'treasurer.jpg', 'Treasurer Names')">Treasurer(s)</span>
+                    <ul>
+                        <li><span onclick="showMember('Finance Advisor(s)', 'finance.jpg', 'Finance Advisor Names')">Finance Advisor(s)</span></li>
+                        <li><span onclick="showMember('Committee Members', 'committee.jpg', 'Committee Member Names')">Committee Members</span></li>
+                    </ul>
+                </li>
+                <li>
+                    <span onclick="showMember('Secretary', 'secretary.jpg', 'Secretary Name')">Secretary</span>
+                </li>
+                <li>
+                    <span onclick="showMember('Events Chair(s)', 'events.jpg', 'Events Chair Names')">Events Chair(s)</span>
+                    <ul>
+                        <li><span onclick="showMember('Events Advisor(s)', 'events_advisor.jpg', 'Events Advisor Names')">Events Advisor(s)</span></li>
+                        <li>
+                            <span onclick="showMember('Hang with HY Coordinator(s)', 'hy.jpg', 'Coordinator Names')">Hang with HY Coordinator(s)</span>
+                            <ul>
+                                <li><span onclick="showMember('Hang with HY Advisor(s)', 'hy_advisor.jpg', 'Advisor Names')">Hang with HY Advisor(s)</span></li>
+                                <li><span onclick="showMember('Subcommittee Members', 'subcommittee.jpg', 'Subcommittee Members')">Subcommittee Members</span></li>
+                            </ul>
+                        </li>
+                        <li><span onclick="showMember('Mandir Coordinator(s)', 'mandir.jpg', 'Mandir Coordinator Names')">Mandir Coordinator(s)</span></li>
+                        <li><span onclick="showMember('Committee Members', 'committee.jpg', 'Committee Member Names')">Committee Members</span></li>
+                    </ul>
+                </li>
+                <li>
+                    <span onclick="showMember('Marketing Chair(s)', 'marketing.jpg', 'Marketing Chair Names')">Marketing Chair(s)</span>
+                    <ul>
+                        <li><span onclick="showMember('Marketing Advisor(s)', 'marketing_advisor.jpg', 'Marketing Advisor Names')">Marketing Advisor(s)</span></li>
+                        <li><span onclick="showMember('Social Coordinator(s)', 'social.jpg', 'Social Coordinator Names')">Social Coordinator(s)</span></li>
+                        <li><span onclick="showMember('Committee Members', 'committee.jpg', 'Committee Member Names')">Committee Members</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="member-info" class="mt-4 p-4 rounded shadow" style="display: none; background: #FFF3E0;">
+            <h3 id="member-role"></h3>
+            <img id="member-photo" src="" alt="Member Photo" class="img-fluid rounded mt-2" style="max-width: 150px;">
+            <p id="member-name" class="mt-2"></p>
+        </div>
+    </section>
+</div>
+
+<style>
+.tree-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.tree {
+    list-style-type: none;
+    padding: 0;
+    position: relative;
+    text-align: center;
+}
+.tree li {
+    display: inline-block;
+    position: relative;
+    padding: 10px;
+}
+.tree li::before, .tree li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-top: 2px solid #FF6600;
+    width: 50%;
+    height: 20px;
+}
+.tree li::after {
+    left: auto;
+    right: 50%;
+}
+.tree li span {
+    cursor: pointer;
+    padding: 10px 15px;
+    background: #FFCC80;
+    border-radius: 5px;
+    display: inline-block;
+    transition: 0.3s;
+}
+.tree li span:hover {
+    background: #FF6600;
+    color: white;
+}
+</style>
+
+<script>
+function showMember(role, imgSrc, name) {
+    document.getElementById('member-role').innerText = role;
+    document.getElementById('member-photo').src = imgSrc;
+    document.getElementById('member-name').innerText = name;
+    document.getElementById('member-info').style.display = 'block';
+}
+</script>
+{% endblock %}
